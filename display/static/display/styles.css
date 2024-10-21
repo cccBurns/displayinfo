@@ -1,0 +1,121 @@
+/* Estilos para dividir la pantalla */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.top-section {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+}
+
+.bottom-section {
+    flex: 1;
+    background-color: #d0d0d0;
+}
+
+/* Estilos para la sección de la fecha */
+.fecha {
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ececec;
+    padding: 10px;
+    justify-content: space-between; /* Asegura que los rectángulos se expandan */
+    font-family: 'Poppins', sans-serif;    
+    font-weight: 700; /* Negrita */
+}
+
+.dia-numero, .mes, .anio {
+    text-align: center;
+    padding: 20px;
+    margin: 0;  /* Elimina los márgenes */
+    font-size: 3rem;
+    flex-grow: 1;  /* Hace que cada rectángulo crezca y ocupe todo el espacio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
+
+/* Diferentes colores para los rectángulos */
+.dia-numero {
+    background-color: #f95a25;
+    color: white;
+}
+
+.mes {
+    background-color: #ffa73b;
+    color: black;
+}
+
+.anio {
+    background-color: #ffeb3b;
+    color: black;
+}
+
+/* Estilos para la sección de la hora */
+.hora {
+    width: 66.66%;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12rem;
+    padding: 10px;
+    font-weight: 700; /* Negrita */
+}
+
+/* Estilos para la sección del clima */
+.clima-y-carousel {
+    display: flex;
+    justify-content: space-between; /* Espacio entre las columnas */
+    width: 100%;
+    height: 100%; /* Asegura que ocupe toda la altura */
+}
+
+.carousel, .clima {
+    width: 50%; /* Cada sección ocupará la mitad del ancho */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.clima {
+    display: flex;
+    flex-direction: column; /* Coloca el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    text-align: center; /* Centra el texto */
+    min-height: 200px; /* Establece una altura mínima */
+}
+
+#weather-icon {
+    width: 100px; /* Ajusta el tamaño de la imagen del clima */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 10px; /* Espacio debajo del icono */
+}
+
+.carousel-items {
+    display: flex;
+    overflow-x: auto;
+}
+
+.carousel-item {
+    min-width: 200px;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #ececec;
+    border-radius: 5px;
+    text-align: center;
+}
