@@ -76,9 +76,11 @@ function actualizarMesAnioCalendario() {
     const opcionesMes = { month: 'long', year: 'numeric' };
     const mesAnioCalendario = document.getElementById('mesAnioCalendario');
     
-    mesAnioCalendario.textContent = fechaActual.toLocaleDateString('es-ES', opcionesMes).toUpperCase();
+    // Modificación aquí: eliminamos 'de' y convertimos a mayúsculas
+    const mesAnioTexto = fechaActual.toLocaleDateString('es-ES', opcionesMes).replace('de', '').trim().toUpperCase();
+    
+    mesAnioCalendario.textContent = mesAnioTexto; // Actualizamos el texto en el elemento
 }
-
 
 // Función para actualizar la fecha y hora
 function actualizarFechaHora() {
@@ -107,6 +109,7 @@ actualizarFechaHora();
 // Actualiza la fecha y hora cada segundo
 setInterval(actualizarFechaHora, 1000);
 actualizarFechaHora(); // Llamada inicial
+
 
 // ------CLIMA Y PRONOSTICO 
 // Función para obtener el clima actual y el pronóstico

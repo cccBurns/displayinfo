@@ -33,23 +33,23 @@ body, html {
     justify-content: space-between;
     font-family: 'Poppins', sans-serif;    
     font-weight: 700;
-    height: 100%; /* Asegura que ocupe el 100% del alto disponible */
+    height: 100%; /* Asegúrate de que ocupe toda la altura */
+    padding: 0; /* Eliminar padding para ocupar todo el espacio */
+    margin: 0; /* Eliminar margin para ocupar todo el espacio */
 }
 
 .dia-numero, .mes, .anio {
-    text-align: center;
-    padding: 20px;
+    text-align: center;    
     margin: 0;
-    font-size: 3rem;
+    font-size: 50px !important;
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
-    box-sizing: border-box; /* Incluye padding en el cálculo del tamaño */
+    height: 33.33%; /* Para que cada parte ocupe igual espacio */
 }
-
 
 /* Diferentes colores para los rectángulos */
 .dia-numero {
@@ -145,7 +145,7 @@ body, html {
 
 .dia-numero {
     background-color: #f95a25;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 2rem;
 }
 
