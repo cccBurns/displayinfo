@@ -33,6 +33,7 @@ body, html {
     justify-content: space-between;
     font-family: 'Poppins', sans-serif;    
     font-weight: 700;
+    height: 100%; /* Asegura que ocupe el 100% del alto disponible */
 }
 
 .dia-numero, .mes, .anio {
@@ -46,7 +47,9 @@ body, html {
     align-items: center;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
+    box-sizing: border-box; /* Incluye padding en el cálculo del tamaño */
 }
+
 
 /* Diferentes colores para los rectángulos */
 .dia-numero {
@@ -80,12 +83,26 @@ body, html {
     display: none;
     flex-direction: column;
     align-items: center;
+    width: 100%; /* Asegúrate de que ocupe el 100% del ancho */
+    height: 100%; /* Asegúrate de que ocupe el 100% del alto disponible */
+    box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho y alto */
 }
 
+/* Ajusta el tamaño de la tabla del calendario */
 .calendario table {
+    width: 100%; /* Para que la tabla ocupe todo el ancho del contenedor */
+    height: 100%; /* Para que la tabla ocupe todo el alto del contenedor */
     border-collapse: collapse;
-    width: 100%;
-    background-color: #ececec;
+}
+
+.diasDelMes {
+    max-height: 50vh; /* Establecer una altura máxima para la tabla de días */
+    overflow-y: auto; /* Permitir desplazamiento solo en la tabla */
+    width: 100%; /* Asegúrate de que ocupa todo el ancho */
+}
+
+.no-scroll {
+    overflow: hidden; /* Evita el desplazamiento en el body */
 }
 
 .calendario th, .calendario td {

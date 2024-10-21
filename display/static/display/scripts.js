@@ -5,20 +5,23 @@ document.getElementById('botonCambiarVista').addEventListener('click', function(
     const vistaFecha = document.querySelector('.vista-fecha');
     const calendario = document.getElementById('calendario');
     const mesAnioCalendario = document.getElementById('mesAnioCalendario');
+    const body = document.body;
 
     if (vistaFecha.style.display === 'none') {
         vistaFecha.style.display = 'flex';
         calendario.style.display = 'none';
-        // Actualizar vista de fecha
+        body.classList.remove('no-scroll'); // Eliminar clase al volver a la vista de fecha
         actualizarVistaFecha();
     } else {
         vistaFecha.style.display = 'none';
         calendario.style.display = 'flex';
+        body.classList.add('no-scroll'); // Agregar clase para evitar desplazamiento
         generarCalendario();
         actualizarMesAnioCalendario();
     }
 });
 
+// Función para actualizar la vista de fecha
 function actualizarVistaFecha() {
     const fechaActual = new Date();
     const opcionesDia = { weekday: 'long', day: 'numeric' };
@@ -66,6 +69,16 @@ function generarCalendario() {
         diasDelMes.appendChild(fila);
     }
 }
+
+// Nueva función para actualizar el mes y año del calendario
+function actualizarMesAnioCalendario() {
+    const fechaActual = new Date();
+    const opcionesMes = { month: 'long', year: 'numeric' };
+    const mesAnioCalendario = document.getElementById('mesAnioCalendario');
+    
+    mesAnioCalendario.textContent = fechaActual.toLocaleDateString('es-ES', opcionesMes).toUpperCase();
+}
+
 
 // Función para actualizar la fecha y hora
 function actualizarFechaHora() {
