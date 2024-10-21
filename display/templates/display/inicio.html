@@ -7,38 +7,42 @@
     {% load static %}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'display/styles.css' %}">
-    <style>
-        .carousel {
-            border: 1px solid #ccc; /* Opcional: para visualización */
-            padding: 10px;
-            margin: 20px 0;
-            display: flex;
-            flex-direction: column; /* Para que los elementos estén en columna */
-            align-items: center;
-        }
-        .carousel-item {
-            display: none; /* Inicialmente ocultamos todos los elementos */
-            text-align: center; /* Centrar el texto */
-        }
-        .liga {
-            font-weight: bold; /* Resaltar el nombre de la liga */
-            margin-bottom: 10px; /* Espacio entre el nombre de la liga y los partidos */
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <!-- Sección superior con la fecha y la hora -->
+         <!-- FECHA -->
         <div class="top-section">
             <div class="fecha">
-                <div class="dia-numero" id="diaNumero">Lunes 21</div>
-                <div class="mes" id="mes">Octubre</div>
-                <div class="anio" id="anio">2024</div>
+                <button class="boton-cambiar-vista" id="botonCambiarVista"></button>
+                <div class="vista-fecha">
+                    <div class="dia-numero" id="diaNumero">LUNES 21</div>
+                    <div class="mes" id="mes">OCTUBRE</div>
+                    <div class="anio" id="anio">2024</div>
+                </div>
+                <!-- CALENDARIO -->
+                <div class="calendario" id="calendario">
+                    <div id="mesAnioCalendario" class="mes-anio"></div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Lun</th>
+                                <th>Mar</th>
+                                <th>Mié</th>
+                                <th>Jue</th>
+                                <th>Vie</th>
+                                <th>Sáb</th>
+                                <th>Dom</th>
+                            </tr>
+                        </thead>
+                        <tbody id="diasDelMes"></tbody>
+                    </table>
+                </div>
             </div>
             <div class="hora" id="hora">Hora</div>
         </div>
-        
         <!-- Sección inferior que contiene el clima y el carrusel -->
+         <!-- CARRUSEL -->
         <div class="bottom-section">
             <div class="clima-y-carousel">
                 <div class="carousel">
@@ -49,14 +53,33 @@
                         <div class="carousel-item" id="mls"></div>
                     </div>
                 </div>
-                <div class="clima">
-                    <h2>Clima Actual</h2>
-                    <img id="weather-icon" src="" alt="Clima" />
-                    <p id="temperature">Temperatura: 25°C</p>
-                    <p id="condition">Condición: Soleado</p>
-                </div>
+                <!-- CLIMA Y PRONOSTICO -->
+                <div id="clima" class="clima-container">
+                    <div class="clima-rectangulo" id="clima-actual">
+                        <h3>Clima Actual</h3>
+                        <img id="weather-icon" src="" alt="Icono del clima">
+                        <p id="temperature">Temperatura: --°C</p>
+                        <p id="condition">Condición: --</p>
+                    </div>
+                    <div class="clima-rectangulo" id="pronostico-2h">
+                        <h3 id="hora-2h">--:--hs</h3>
+                        <p id="temperature-2h">--°C</p>
+                        <p id="condition-2h">--</p>
+                    </div>
+                    <div class="clima-rectangulo" id="pronostico-4h">
+                        <h3 id="hora-4h">--:--hs</h3>
+                        <p id="temperature-4h">--°C</p>
+                        <p id="condition-4h">--</p>
+                    </div>
+                    <div class="clima-rectangulo" id="pronostico-6h">
+                        <h3 id="hora-6h">--:--hs</h3>
+                        <p id="temperature-6h">--°C</p>
+                        <p id="condition-6h">--</p>
+                    </div>
+                </div>              
+                
             </div>
-        </div>    
+        </div>
         <script src="{% static 'display/scripts.js' %}"></script>
     </div>
 </body>

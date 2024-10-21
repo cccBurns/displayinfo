@@ -30,17 +30,17 @@ body, html {
     flex-direction: column;
     background-color: #ececec;
     padding: 10px;
-    justify-content: space-between; /* Asegura que los rectángulos se expandan */
+    justify-content: space-between;
     font-family: 'Poppins', sans-serif;    
-    font-weight: 700; /* Negrita */
+    font-weight: 700;
 }
 
 .dia-numero, .mes, .anio {
     text-align: center;
     padding: 20px;
-    margin: 0;  /* Elimina los márgenes */
+    margin: 0;
     font-size: 3rem;
-    flex-grow: 1;  /* Hace que cada rectángulo crezca y ocupe todo el espacio */
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,37 +73,128 @@ body, html {
     align-items: center;
     font-size: 12rem;
     padding: 10px;
-    font-weight: 700; /* Negrita */
+    font-weight: 700;
 }
+
+.calendario {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calendario table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ececec;
+}
+
+.calendario th, .calendario td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.calendario td.dia-actual {
+    background-color: #f95a25;
+    color: white;
+}
+
+/* Estilo para la sección del mes y año del calendario */
+.mes-anio {
+    font-size: 2rem; /* Incrementa el tamaño de la fuente */
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Asegura que el texto esté en mayúsculas */
+}
+
+.vista-fecha {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.dia-numero, .mes, .anio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 33.33%;
+    margin: 0;
+}
+
+.dia-numero {
+    background-color: #f95a25;
+    color: white;
+    font-size: 2rem;
+}
+
+.mes {
+    background-color: #ffa73b;
+    color: black;
+    font-size: 2rem;
+}
+
+.anio {
+    background-color: #ffeb3b;
+    color: black;
+    font-size: 2rem;
+}
+
+/* ------------ CLIMA ----------- */
 
 /* Estilos para la sección del clima */
-.clima-y-carousel {
-    display: flex;
-    justify-content: space-between; /* Espacio entre las columnas */
-    width: 100%;
-    height: 100%; /* Asegura que ocupe toda la altura */
+.clima-container {
+    display: flex; /* Usa Flexbox para colocar los rectángulos uno al lado del otro */
+    border: 1px solid #ccc; /* Borde para el contenedor del clima */
+    padding: 0; /* Sin padding en el contenedor para que ocupe todo el espacio */
+    margin: 20px 0;
 }
 
-.carousel, .clima {
-    width: 50%; /* Cada sección ocupará la mitad del ancho */
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.clima-rectangulo {
+    flex: 1; /* Cada rectángulo ocupa el mismo espacio */
+    border: 1px solid #999; /* Borde para cada rectángulo */
+    padding: 10px; /* Padding interno para el contenido */
+    margin: 0; /* Sin márgenes entre los rectángulos */
+    text-align: center; /* Centrar el contenido */
 }
 
 .clima {
     display: flex;
-    flex-direction: column; /* Coloca el contenido verticalmente */
-    align-items: center; /* Centra el contenido horizontalmente */
-    text-align: center; /* Centra el texto */
-    min-height: 200px; /* Establece una altura mínima */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 200px;
+}
+
+/* Estilo para el rectángulo del clima actual */
+#clima-actual {
+    border: 2px solid #000; /* Borde más grueso para el rectángulo actual */
+    font-weight: bold; /* Texto en negrita si deseas */
 }
 
 #weather-icon {
-    width: 100px; /* Ajusta el tamaño de la imagen del clima */
-    height: auto; /* Mantiene la proporción de la imagen */
-    margin-bottom: 10px; /* Espacio debajo del icono */
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.clima-y-carousel {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel, .clima {
+    width: 50%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-items {
@@ -119,3 +210,44 @@ body, html {
     border-radius: 5px;
     text-align: center;
 }
+
+/* ------------ CARRUSEL ----------- */
+
+/* Estilos adicionales */
+.carousel {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-item {
+    display: none;
+    text-align: center;
+}
+
+.liga {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.boton-cambiar-vista {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #f95a25;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
