@@ -6,14 +6,30 @@
     <title>Página con Fecha y Hora</title>
     {% load static %}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Vincular el archivo CSS -->
     <link rel="stylesheet" href="{% static 'display/styles.css' %}">
+    <style>
+        .carousel {
+            border: 1px solid #ccc; /* Opcional: para visualización */
+            padding: 10px;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column; /* Para que los elementos estén en columna */
+            align-items: center;
+        }
+        .carousel-item {
+            display: none; /* Inicialmente ocultamos todos los elementos */
+            text-align: center; /* Centrar el texto */
+        }
+        .liga {
+            font-weight: bold; /* Resaltar el nombre de la liga */
+            margin-bottom: 10px; /* Espacio entre el nombre de la liga y los partidos */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <!-- Sección superior con la fecha y la hora -->
         <div class="top-section">
-            <!-- Dividimos la fecha en tres secciones -->
             <div class="fecha">
                 <div class="dia-numero" id="diaNumero">Lunes 21</div>
                 <div class="mes" id="mes">Octubre</div>
@@ -28,10 +44,9 @@
                 <div class="carousel">
                     <h2>Próximos Partidos</h2>
                     <div class="carousel-items">
-                        <div class="carousel-item">Partido 1</div>
-                        <div class="carousel-item">Partido 2</div>
-                        <div class="carousel-item">Partido 3</div>
-                        <!-- Agrega más partidos según sea necesario -->
+                        <div class="carousel-item" id="premier-league"></div>
+                        <div class="carousel-item" id="liga-argentina"></div>
+                        <div class="carousel-item" id="mls"></div>
                     </div>
                 </div>
                 <div class="clima">
@@ -40,10 +55,9 @@
                     <p id="temperature">Temperatura: 25°C</p>
                     <p id="condition">Condición: Soleado</p>
                 </div>
-                
             </div>
         </div>    
-    <script src="{% static 'display/scripts.js' %}"></script>
-    
+        <script src="{% static 'display/scripts.js' %}"></script>
+    </div>
 </body>
 </html>
