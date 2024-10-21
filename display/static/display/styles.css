@@ -149,9 +149,10 @@ body, html {
 /* Estilos para la sección del clima */
 .clima-container {
     display: flex; /* Usa Flexbox para colocar los rectángulos uno al lado del otro */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
     border: 1px solid #ccc; /* Borde para el contenedor del clima */
-    padding: 0; /* Sin padding en el contenedor para que ocupe todo el espacio */
-    margin: 20px 0;
+    padding: 0; /* Sin padding en el contenedor */
+    margin: 20px 0; /* Margen vertical del contenedor */
 }
 
 .clima-rectangulo {
@@ -160,6 +161,7 @@ body, html {
     padding: 10px; /* Padding interno para el contenido */
     margin: 0; /* Sin márgenes entre los rectángulos */
     text-align: center; /* Centrar el contenido */
+    box-sizing: border-box; /* Asegura que el padding y borde no afecten el ancho total */
 }
 
 .clima {

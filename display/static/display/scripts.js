@@ -112,15 +112,18 @@ async function obtenerClima() {
         const data = await response.json();
         
         const temperatureElement = document.getElementById('temperature');
+        const humidityElement = document.getElementById('humidity'); // Agregado para humedad
         const conditionElement = document.getElementById('condition');
         const iconElement = document.getElementById('weather-icon');
         
         const temperature = data.main.temp; // Temperatura actual
+        const humidity = data.main.humidity; // Humedad actual
         const condition = data.weather[0].description; // Descripción del clima
         const icon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`; // URL de la imagen del clima
 
         // Mostrar la información en el HTML
-        temperatureElement.textContent = `Temperatura Actual: ${temperature}°C`;
+        temperatureElement.textContent = `Temperatura: ${temperature}°C`;
+        humidityElement.textContent = `Humedad: ${humidity}%`; // Mostrar la humedad
         conditionElement.textContent = `Condición: ${condition.charAt(0).toUpperCase() + condition.slice(1)}`;
         iconElement.src = icon; // URL directa de la imagen
 
@@ -147,28 +150,51 @@ async function obtenerPronostico() {
         const now = new Date();
         const currentHour = now.getHours();
 
-        // Actualizar el pronóstico para 2h, 4h y 6h
-        const pronostico2h = pronosticos.find(p => new Date(p.dt * 1000).getHours() === currentHour + 2);
-        const pronostico4h = pronosticos.find(p => new Date(p.dt * 1000).getHours() === currentHour + 4);
-        const pronostico6h = pronosticos.find(p => new Date(p.dt * 1000).getHours() === currentHour + 6);
+        // Lógica para obtener el pronóstico de 2h, 4h, 6h y 8h
+        const pronostico2h = pronosticos.find(p => new Date(p.dt * 1000).getHours() === (currentHour + 2) % 24);
+        const pronostico4h = pronosticos.find(p => new Date(p.dt * 1000).getHours() === (currentHour + 4) % 24);
+        const pronostico6h = pronosticos.find(p => new Date(p.dt * 1000).getHours() === (currentHour + 6) % 24);
+        const pronostico8h = pronosticos.find(p => new Date(p.dt * 1000).getHours() === (currentHour + 8) % 24);
 
         // Actualizar el HTML con los pronósticos
         if (pronostico2h) {
             document.getElementById('hora-2h').textContent = `${new Date(pronostico2h.dt * 1000).getHours()}:00hs`;
             document.getElementById('temperature-2h').textContent = `${pronostico2h.main.temp}°C`;
             document.getElementById('condition-2h').textContent = pronostico2h.weather[0].description.charAt(0).toUpperCase() + pronostico2h.weather[0].description.slice(1);
+        } else {
+            document.getElementById('hora-2h').textContent = `-`;
+            document.getElementById('temperature-2h').textContent = `-`;
+            document.getElementById('condition-2h').textContent = `-`;
         }
 
         if (pronostico4h) {
             document.getElementById('hora-4h').textContent = `${new Date(pronostico4h.dt * 1000).getHours()}:00hs`;
             document.getElementById('temperature-4h').textContent = `${pronostico4h.main.temp}°C`;
             document.getElementById('condition-4h').textContent = pronostico4h.weather[0].description.charAt(0).toUpperCase() + pronostico4h.weather[0].description.slice(1);
+        } else {
+            document.getElementById('hora-4h').textContent = `-`;
+            document.getElementById('temperature-4h').textContent = `-`;
+            document.getElementById('condition-4h').textContent = `-`;
         }
 
         if (pronostico6h) {
             document.getElementById('hora-6h').textContent = `${new Date(pronostico6h.dt * 1000).getHours()}:00hs`;
             document.getElementById('temperature-6h').textContent = `${pronostico6h.main.temp}°C`;
             document.getElementById('condition-6h').textContent = pronostico6h.weather[0].description.charAt(0).toUpperCase() + pronostico6h.weather[0].description.slice(1);
+        } else {
+            document.getElementById('hora-6h').textContent = `-`;
+            document.getElementById('temperature-6h').textContent = `-`;
+            document.getElementById('condition-6h').textContent = `-`;
+        }
+
+        if (pronostico8h) {
+            document.getElementById('hora-8h').textContent = `${new Date(pronostico8h.dt * 1000).getHours()}:00hs`;
+            document.getElementById('temperature-8h').textContent = `${pronostico8h.main.temp}°C`;
+            document.getElementById('condition-8h').textContent = pronostico8h.weather[0].description.charAt(0).toUpperCase() + pronostico8h.weather[0].description.slice(1);
+        } else {
+            document.getElementById('hora-8h').textContent = `-`;
+            document.getElementById('temperature-8h').textContent = `-`;
+            document.getElementById('condition-8h').textContent = `-`;
         }
 
     } catch (error) {
@@ -181,6 +207,7 @@ obtenerClima();
 
 // Actualiza el clima cada 10 minutos
 setInterval(obtenerClima, 600000);
+
 
 // ------ CARRUSEL Y PARTIDOS 
 
