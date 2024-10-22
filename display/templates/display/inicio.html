@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página con Fecha y Hora</title>
     {% load static %}
+    <link rel="stylesheet" href="{% static 'display/styles.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'display/styles.css' %}">
 </head>
 <body>
     <div class="container">
         <!-- Sección superior con la fecha y la hora -->
-         <!-- FECHA -->
         <div class="top-section">
             <div class="fecha">
                 <button class="boton-cambiar-vista" id="botonCambiarVista"></button>
@@ -21,7 +20,6 @@
                     <div class="mes" id="mes">OCTUBRE</div>
                     <div class="anio" id="anio">2024</div>
                 </div>
-                <!-- CALENDARIO -->
                 <div class="calendario" id="calendario">
                     <div id="mesAnioCalendario" class="mes-anio"></div>
                     <table>
@@ -39,22 +37,29 @@
                         <tbody id="diasDelMes"></tbody>
                     </table>
                 </div>
-                
             </div>
             <div class="hora" id="hora">Hora</div>
         </div>
+
         <!-- Sección inferior que contiene el clima y el carrusel -->
-         <!-- CARRUSEL -->
         <div class="bottom-section">
             <div class="clima-y-carousel">
+                <!-- CARRUSEL -->
                 <div class="carousel">
                     <h2>Próximos Partidos</h2>
                     <div class="carousel-items">
+                        <!-- Sección para mostrar partidos de la Premier League -->
                         <div class="carousel-item" id="premier-league"></div>
+                        <!-- Sección para mostrar partidos de la Liga Argentina -->
                         <div class="carousel-item" id="liga-argentina"></div>
+                        <!-- Sección para mostrar partidos de la MLS -->
                         <div class="carousel-item" id="mls"></div>
+                        <!-- Sección para mostrar partidos de la Copa Libertadores -->
+                        <div class="carousel-item" id="libertadores"></div>
                     </div>
                 </div>
+                
+                
                 <!-- CLIMA Y PRONOSTICO -->
                 <div id="clima" class="clima-container">
                     <div class="clima-rectangulo" id="clima-actual">
@@ -89,11 +94,10 @@
                         <p id="condition-96h">Condición: --</p>
                     </div>
                 </div>
-                
-                                                
-                
             </div>
         </div>
+
+        <!-- Cargar el script JavaScript -->
         <script src="{% static 'display/scripts.js' %}"></script>
     </div>
 </body>
